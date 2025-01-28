@@ -1,112 +1,67 @@
-# ML-for-Fire-Fighters
-README
+Overview
+This project focuses on improving emergency response performance for the City of Rochester Fire Department (RFD) through advanced data analysis and predictive modeling. By leveraging geospatial data, historical incident records, and state-of-the-art machine learning techniques, this initiative aims to enhance resource allocation, optimize deployment strategies, and reduce response times, ensuring operational excellence and community safety.
 
+Key Features
+Geospatial Analysis: Evaluate fire station coverage and incident hotspots using interactive maps.
+Predictive Modeling: Forecast monthly incident counts to prepare for future demands.
+Resource Optimization: Propose unit relocations and workload redistributions based on historical data.
+Low-Acuity Response Program: Suggest a pilot program to handle non-emergency calls and alleviate strain on critical resources.
+Datasets
+Incident Data: Details about emergencies, including type, location, and response actions.
+Station Apparatus Data: Information on station-specific resources and units.
+Geospatial Data: Shapefiles for fire station locations to enable spatial analysis.
+Methodology
+Data Preprocessing: Cleaned and imputed missing values in incident and geospatial datasets.
+Exploratory Data Analysis: Identified seasonal trends, peak hours, and incident types across RFD.
+Predictive Modeling:
+Forecasted incident counts using the Prophet model.
+Incorporated feature engineering and lagged variables for improved accuracy.
+Interactive Maps: Developed visualizations to analyze response times and incident distributions.
+Key Insights and Recommendations
+Seasonal Trends: Summer months and late afternoon hours see the highest incident rates.
+Resource Allocation: Relocated units to align with high-incident zones.
+Proposed Initiatives: Introduced a low-acuity response program to address non-emergency calls.
+Performance Metrics
+The project achieved high forecasting accuracy with key metrics, including:
 
-1. Execution Sequence
-1)	EDA
-Script: 
-Code/EDA/EDA.ipynb
-Input: 
-Data/incident_cleaned_final.csv
+RMSE: 5.835
+MAPE: 18.945%
+R²: ~85% across all stations
+How to Use
+Setup
+Clone the repository:
 
-2)	ResourceAllocation
-Script: 
-Code/Resource Allocation/HeatMapsForResources.ipynb
-Input:
-Data/incident_cleaned_final.csv
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/rochester-fire-response.git
+cd rochester-fire-response
+Install dependencies:
 
-Script: 
-Code/Resource Allocation/InteractiveMaps.ipynb
-Input:
-RFD_Station_Locations files (shx, shp, prj, dbf, cpg, shp.xml, sbx, sbn): 
-tl_2024_us_zcta520 (prj, cpg, shx, shp, dbf, shp.iso.xml, shp.ea.iso,xml): 
-incident_cleaned_final.csv 
-Output:
-Map1_Average_Response_Time_and_Incident_Analysis_by_ZIP_2019-2024.html
-Map2_Incident_Type_Distribution_and_Fire_Station_Workload_2019-2024.html
-Script: 
-Code/Map for Predicted Counts.ipynb
-Input:
-RFD_Station_Locations files (shx, shp, prj, dbf, cpg, shp.xml, sbx, sbn): 
-data/Predicted Monthly Incident Counts/<station_name_historical_forecasted_values.csv 
-
-3)	DataCleaning&Preparation
- Script: Code/incident_cleaning_final.ipynb
- Input: 
-data/incident_report_dataset.csv
-data/incident_cleaned_geocoded_v3.csv
-data/RFD_Station_Locations.shp
- Output: data/incident_cleaned_final.csv
-Script: Code/incident_counts_by_station.ipynb
-Input: data/incident_cleaned_final.csv
-Output: data/Per Station per Month/<station_name>_monthly.csv
-
-
-4)	ModelBuilding
- Script: Code/Feature Selection & Forecasting Selected Independent Features.ipynb
- Input: data/Per Station per Month/<station_name>monthly.csv
- Output: data/Historical_Forecasted_Independent_Feat/<station_name>_past_future.csv
-data/forecasted_indep_feat_validation_metrics/<station_name>_fc_val.csv
-
-Script: Code/Improving Independent Features' Forecast and Predicting Monthly Counts.ipynb
-Input:
-data/Historical_Forecasted_Independent_Feat/<station_name>_past_future.csv
-data/forecasted_indep_feat_validation_metrics/<station_name>_fc_val.csv
-Output: data/Predicted Monthly Incident Counts/<station_name_historical_forecasted_values.csv
-
-
-
-2. Folder Structure
-ML-for-Fire-Fighters
- ├── Code/
- │ ├── DataCleaning&Preparation
- │ │ ├── incident_cleaning_final.ipynb
- │ │ ├── incident_counts_by_station.ipynb
- │ ├── EDA
- │ │ ├── EDA.ipynb
- │ ├── ModelBuilding
- │ │ ├── Feature Selection & Forecasting Selected Independent Features.ipynb 
- │ │ ├── Improving Independent Features' Forecast and Predicting Monthly Counts.ipynb 
- │ ├── ResourceAllocation
- │ │ ├── HeatMapsForResouce.ipynb
- │ │ ├── InteractiveMaps.ipynb
- │ │ ├── Map for Predicted Counts.ipynb
- ├── Data/
- │ ├── incident_cleaned_final.csv 
- │ ├── incident_cleaned_geocoded_v3.csv 
- │ ├── incident_cleaned_final.csv 
- │ ├── Per Station per Month/<station_name>_monthly.csv
- │ ├── Historical_Forecasted_Independent_Feat/<station_name>_past_future.csv
- │ ├── forecasted_indep_feat_validation_metrics/<station_name>_fc_val.csv 
- │ ├── Predicted Monthly Incident Counts/<station_name>_historical_forecasted_values.csv
- │ ├── RFD_Station_Locations.cpg
- │ ├── RFD_Station_Locations.dbf
- │ ├── RFD_Station_Locations.prj
- │ ├── RFD_Station_Locations.sbn
- │ ├── RFD_Station_Locations.sbx
- │ ├── RFD_Station_Locations.shp
- │ ├── RFD_Station_Locations.shp.xml
- │ ├── tl_2024_us_zcta520.cpg
- │ ├── tl_2024_us_zcta520.dbf
- │ ├── tl_2024_us_zcta520.prj
- │ ├── tl_2024_us_zcta520.shp
- │ ├── tl_2024_us_zcta520.shp.ea.iso.xml
- │ ├── tl_2024_us_zcta520.shp.iso.xml
- │ ├── tl_2024_us_zcta520.shx
- ├── Final Presentation/
- │ ├── Final Presentation.pdf
- │ ├── Final Presentation.pptx
- ├── Readme/
- │ ├── README
- ├── Report/
- ├── Report.pdf
- ├── RFD_InteractiveMaps
- │ ├── Map1_Average_Response_Time_and_Incident_Analysis_by_ZIP_2019-2024.html
- │ ├── Map2_Incident_Type_Distribution_and_Fire_Station_Workload_2019-2024.html
- │ ├── map_predictedCounts_2025
- │ ├── map_predictedCounts_2033
- ├── RFD_FinalPresentationForStakeholders
- │ ├── Presentation For Stakeholders.pdf
- │ ├── Presentation For Stakeholders.pptx
-
-![image](https://github.com/user-attachments/assets/2f16bbbb-452d-4580-a7c2-d9d7e94d552e)
+bash
+Copy
+Edit
+pip install -r requirements.txt
+Running the Model
+Train the model:
+bash
+Copy
+Edit
+python train_model.py
+Visualize results:
+bash
+Copy
+Edit
+python generate_visuals.py
+Interactive Maps
+Access the interactive maps to explore station coverage and response dynamics:
+bash
+Copy
+Edit
+python run_interactive_maps.py
+Future Work
+Enhanced Predictive Models: Incorporate external data like traffic and weather for improved response time predictions.
+Low-Acuity Program Implementation: Conduct feasibility studies and pilot testing.
+Real-Time Dashboards: Build user-friendly dashboards for better decision-making.
+Contact
+For inquiries, contact the project team at nassili@u.rochester.edu
