@@ -1,9 +1,8 @@
 # Improving Emergency Response Performance at the City of Rochester Fire Department
-# Data Science Capstone Project Fall 2024
 
 ## Overview
 
-This project focuses on improving emergency response performance for the City of Rochester Fire Department (RFD) through advanced data analysis and predictive modeling. By leveraging geospatial data, historical incident records, and state-of-the-art machine learning techniques, this initiative aims to enhance resource allocation, optimize deployment strategies, and reduce response times, ensuring operational excellence and community safety.
+This is a Data Science capstone project at the University of Rochester that focuses on improving emergency response performance for the City of Rochester Fire Department (RFD) through advanced data analysis and predictive modeling. By leveraging geospatial data, historical incident records, and state-of-the-art machine learning techniques, this initiative aims to enhance resource allocation, optimize deployment strategies, and reduce response times, ensuring operational excellence and community safety.
 
 ## Key Features
 
