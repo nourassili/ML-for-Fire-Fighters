@@ -1,4 +1,5 @@
-# README: Improving Emergency Response Performance at the City of Rochester Fire Department
+# Improving Emergency Response Performance at the City of Rochester Fire Department
+# Data Science Capstone Project Fall 2024
 
 ## Overview
 
